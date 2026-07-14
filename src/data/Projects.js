@@ -1,4 +1,5 @@
 import trashImg from "../assets/images/TrashToTreasure.png";
+import dvdrentalImg from "../assets/images/dvdrental_analysis.jpeg";
 
 const projects = [
   {
@@ -56,7 +57,7 @@ const projects = [
     description:
       "An interactive dashboard built using the DVD Rental database with AI-powered insights and machine learning for business analytics.",
 
-    image: "",
+    image: dvdrentalImg,
 
     tech: [
       "Python",
