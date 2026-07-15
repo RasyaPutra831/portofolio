@@ -2,6 +2,7 @@ export default function Button({
     children,
     href = "#",
     variant = "primary",
+    download = false,
 }) {
     const baseStyle =
         "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-500";
@@ -17,6 +18,7 @@ export default function Button({
     return (
         <a
         href={href}
+        download={download}
         className={`${baseStyle} ${variants[variant]}`}
         >
         {children}

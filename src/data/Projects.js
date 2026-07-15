@@ -1,5 +1,6 @@
 import trashImg from "../assets/images/TrashToTreasure.png";
 import dvdrentalImg from "../assets/images/dvdrental_analysis.jpeg";
+import financialImg from "../assets/images/financial_manager.jpeg";
 
 const projects = [
   {
@@ -33,7 +34,7 @@ const projects = [
     description:
       "A personal finance mobile application featuring expense tracking, OCR receipt scanning, budgeting, spending analytics, and financial goals.",
 
-    image: "",
+    image: financialImg,
 
     tech: [
       "Flutter",
@@ -42,7 +43,7 @@ const projects = [
       "Dart",
     ],
 
-    github: "#",
+    github: "https://github.com/RasyaPutra831/financial_manager",
 
     demo: null,
 
@@ -68,9 +69,9 @@ const projects = [
       "Machine Learning",
     ],
 
-    github: "#",
+    github: "https://github.com/RasyaPutra831/dvdrental_analysis",
 
-    demo: "#",
+    demo: "https://dvdrental-analysis.vercel.app/",
 
     type: "web",
   },
