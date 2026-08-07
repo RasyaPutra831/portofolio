@@ -1,6 +1,7 @@
 import trashImg from "../assets/images/TrashToTreasure.png";
 import dvdrentalImg from "../assets/images/dvdrental_analysis.jpeg";
 import financialImg from "../assets/images/financial_manager.jpeg";
+import HomeCreditImg from "../assets/images/home_credit.png";
 
 const projects = [
   {
@@ -74,6 +75,33 @@ const projects = [
     demo: "https://dvdrental-analysis.vercel.app/",
 
     type: "web",
+  },
+
+  {
+    id: 4,
+
+    title: "Home Credit Default Risk Prediction",
+
+    description:
+      "Built an end-to-end machine learning pipeline for credit default prediction, including data preprocessing, feature engineering, model training, and performance evaluation.",
+
+    image: HomeCreditImg,
+
+    tech: [
+      "Python",
+      "Data Visualization",
+      "SQL",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Excel"
+    ],
+
+    github: "https://github.com/RasyaPutra831/Home_Credit_Bootcamp",
+
+    demo: null,
+
+    type: "ml",
   },
 ];
 
