@@ -2,6 +2,7 @@ import trashImg from "../assets/images/TrashToTreasure.png";
 import dvdrentalImg from "../assets/images/dvdrental_analysis.jpeg";
 import financialImg from "../assets/images/financial_manager.jpeg";
 import HomeCreditImg from "../assets/images/home_credit.png";
+import FleetOptimizerImg from "../assets/images/fleet_optimizer.png";
 
 const projects = [
   {
@@ -102,6 +103,29 @@ const projects = [
     demo: null,
 
     type: "ml",
+  },
+
+  {
+    id: 5,
+
+    title: "Fleet Optimizer",
+
+    description: "This website aims to address issues at PT KAWAN LAMA regarding logistics specifically, high shipping costs and inefficient cargo arrangement that results in wasted space. This application is to assist in organizing shipments and determining the most efficient cargo types.",
+
+    image: FleetOptimizerImg,
+
+    tech: [
+      "Python",
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
+
+    github: "https://github.com/RasyaPutra831/fleet_optimizer",
+
+    demo: "https://fleet-optimizer-ad8d.vercel.app/",
+
+    type: "web",
   },
 ];
 
