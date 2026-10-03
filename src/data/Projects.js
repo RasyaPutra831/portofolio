@@ -3,6 +3,7 @@ import dvdrentalImg from "../assets/images/dvdrental_analysis.jpeg";
 import financialImg from "../assets/images/financial_manager.jpeg";
 import HomeCreditImg from "../assets/images/home_credit.png";
 import FleetOptimizerImg from "../assets/images/fleet_optimizer.png";
+import PowerBiImg from "../assets/images/Power_BI_Img.jpeg";
 
 const projects = [
   {
@@ -126,6 +127,29 @@ const projects = [
     demo: "https://fleet-optimizer-ad8d.vercel.app/",
 
     type: "web",
+  },
+
+  {
+    id: 6,
+
+    title: "Fleet Optimizer",
+
+    description: "Cleaned and integrated 402 sales records from store POS and online marketplaces into one validated dataset. Analyzed revenue by channel, product, and store in Excel and Power BI, revealing that 2 products generated 54% of total revenue.",
+
+    image: PowerBiImg,
+
+    tech: [
+      "Ecel",
+      "Power BI",
+      "Sql",
+      "Data Visualization"
+    ],
+
+    github: "#",
+
+    demo: "#",
+
+    type: "Power BI",
   },
 ];
 
