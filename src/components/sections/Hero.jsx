@@ -198,7 +198,7 @@ export default function Hero() {
                     duration:0.6
                 }}
                 >
-                    <Button variant="secondary" href="/resume/CV-Muhammad-Rasya-ATS.pdf" download>
+                    <Button variant="secondary" href="/resume/CV-Rasya-ATS.pdf" download>
                         Download Resume
                     </Button>
                 </motion.div>

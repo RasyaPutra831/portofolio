@@ -105,7 +105,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=mrpp717@gmail.com&su=Portfolio%20Inquiry"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=rasya.putra7291@gmail.com&su=Portfolio%20Inquiry"
                 target="_blank"
                 rel="noopener noreferrer"
               className="
