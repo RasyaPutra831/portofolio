@@ -1,16 +1,36 @@
-# React + Vite
+# Rasya Putra — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 + Vite + Tailwind CSS 4 + Framer Motion + Lenis.
 
-Currently, two official plugins are available:
+```bash
+npm install
+npm run dev
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Editing content
 
-## React Compiler
+Most content lives in `src/data/` — no need to touch components:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| File | What it controls |
+|---|---|
+| `site.js` | Name, role, email, location, social links, nav |
+| `Projects.js` | Work section. The **first** project is shown large (featured). |
+| `expertise.js` | Expertise list (01–04) |
+| `experience.js` | Experience section |
 
-## Expanding the ESLint configuration
+In headings, wrap a word in `*asterisks*` to render it as the italic serif accent
+(e.g. `lines={["Selected *work.*"]}`).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Structure
+
+```
+src/
+  components/
+    layout/Navbar.jsx
+    sections/  Hero, About, Work, Expertise, Experience, Contact (incl. dark statement)
+    ui/        Button, Tag, BrowserFrame, SectionHeading, Container, Cursor
+    animations/ FadeIn, TextReveal
+  hooks/useSmoothScroll.js   (Lenis; disabled for prefers-reduced-motion)
+  data/
+  styles/Globals.css         (colour + font tokens in @theme)
+```

@@ -1,142 +1,80 @@
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  {
-    title: "Home",
-    href: "#home",
-  },
-  {
-    title: "About",
-    href: "#about",
-  },
-  {
-    title: "Projects",
-    href: "#projects",
-  },
-  {
-    title: "Contact",
-    href: "#contact",
-  },
-];
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { navLinks, site } from "../../data/site";
+import Button from "../ui/Button";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [open, setOpen] = useState(false);
 
   return (
-    <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
-          ? "bg-zinc-950/70 backdrop-blur-xl border-b border-white/10"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="relative mx-auto flex h-20 max-w-7xl items-center px-6 lg:px-10">
-        {/* Logo */}
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div className="absolute inset-0 -bottom-6 bg-gradient-to-b from-paper via-paper/85 to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,black_60%,transparent)]" />
 
-        <a
-          href="#home"
-          className="
-            text-2xl
-            font-bold
-            tracking-tight
-            text-white
-            transition
-            duration-300
-            hover:scale-105
-          "
-        >
-          Rasya<span className="text-violet-500">Dev</span>
+      <div className="relative mx-auto flex h-18 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-10">
+        <a href="#home" className="leading-none">
+          <span className="block text-base font-extrabold uppercase tracking-tight">
+            {site.name}
+          </span>
+          <span className="label mt-1 block whitespace-nowrap text-[0.6rem] text-muted">{site.role}</span>
         </a>
 
-        {/* Desktop Menu */}
-
-        <nav
-  className="
-    absolute
-    left-1/2
-    hidden
-    -translate-x-1/2
-    items-center
-    gap-10
-    md:flex
-  "
->
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-10 md:flex">
           {navLinks.map((link) => (
             <a
-              key={link.title}
+              key={link.href}
               href={link.href}
-              className="
-                group
-                relative
-                text-sm
-                font-medium
-                text-zinc-300
-                transition
-                duration-300
-                hover:text-violet-400">
+              className="label text-ink-2 transition-colors hover:text-ink"
+            >
               {link.title}
-              <span className="
-                absolute
-                -bottom-2
-                left-0
-                h-[2px]
-                w-0
-                bg-violet-500
-                transition-all
-                duration-300
-                group-hover:w-full"/>
             </a>
           ))}
         </nav>
-        
 
-        {/* Mobile Button */}
+        <div className="hidden md:block">
+          <Button href="#contact" arrow className="!px-5 !py-3">
+            Let's talk
+          </Button>
+        </div>
 
         <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-white md:hidden"
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="label rounded-full border border-line px-4 py-2.5 md:hidden"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {open ? "Close" : "Menu"}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-
-      {isOpen && (
-        <div className="border-t border-white/10 bg-zinc-950/95 backdrop-blur-xl md:hidden">
-          <div className="flex flex-col gap-6 px-6 py-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.title}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-zinc-300 transition hover:text-violet-400"
-              >
-                {link.title}
-              </a>
-            ))}
-
-            <a
-              href="#"
-              className="rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-500 py-3 text-center font-medium text-white"
-            >
-              Resume
-            </a>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="relative mx-4 rounded-2xl border border-line bg-paper p-6 shadow-xl md:hidden"
+          >
+            <ul className="flex flex-col gap-5">
+              {[...navLinks, { title: "Contact", href: "#contact" }].map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="display text-3xl"
+                  >
+                    {link.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <Button href={site.resume} download variant="outline" className="mt-8">
+              Download CV
+            </Button>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

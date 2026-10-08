@@ -1,23 +1,93 @@
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+@import "@fontsource/space-mono/400.css";
+@import "@fontsource/space-mono/700.css";
 @import "tailwindcss";
 
-html {
-    scroll-behavior: smooth;
+@theme {
+    --color-paper: #f2f1ed;
+    --color-paper-2: #e9e8e3;
+    --color-ink: #111111;
+    --color-ink-2: #3a3a37;
+    --color-muted: #75756f;
+    --color-line: rgb(17 17 17 / 0.12);
+    --color-night: #0e0e0e;
+    --color-lime: #d4f53c;
+
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+    --font-mono: "Space Mono", ui-monospace, monospace;
 }
 
-body{
-    background:
-        radial-gradient(
-            circle at 75% 30%,
-            rgba(139,92,246,.12),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(124,58,237,.08),
-            transparent 40%
-        ),
-        #09090b;
-    color:white;
-    font-family:"Inter",sans-serif;
-    overflow-x:hidden;
+@layer base {
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        background: var(--color-paper);
+        color: var(--color-ink);
+        font-family: var(--font-sans);
+        overflow-x: hidden;
+    }
+
+    section[id] {
+        scroll-margin-top: 5rem;
+    }
+
+    ::selection {
+        background: var(--color-lime);
+        color: var(--color-ink);
+    }
+}
+
+@layer components {
+    /* Big uppercase display headings */
+    .display {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: -0.045em;
+        line-height: 0.92;
+    }
+
+    /* The italic serif word inside a display heading */
+    .accent {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: -0.02em;
+    }
+
+    .label {
+        font-family: var(--font-mono);
+        font-size: 0.6875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+    }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+    overflow: clip;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }

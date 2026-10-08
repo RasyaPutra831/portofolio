@@ -1,87 +1,50 @@
 import Container from "../ui/Container";
 import FadeIn from "../animations/FadeIn";
+import TextReveal from "../animations/TextReveal";
+import { site } from "../../data/site";
 
-const skills = [
-  "Flutter",
-  "Dart",
-  "Python",
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "Supabase",
-  "SQL",
-  "Machine Learning",
-  "Data Analytics",
-  "PostgreSQL",
-  "Excel",
+const facts = [
+  { label: "Location", value: site.location },
+  { label: "Primary focus", value: site.focus },
+  { label: "Currently", value: "Data Analyst Intern, ESDM" },
+  { label: "Studying", value: "Information Systems, President University" },
 ];
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="py-32"
-    >
+    <section id="about" className="py-28 lg:py-40">
       <Container>
+        <p className="label mb-10 text-muted">// 01. About</p>
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <TextReveal
+            lines={["Clean data,", "*clear*", "decisions."]}
+            className="display text-[13vw] sm:text-6xl lg:text-7xl"
+          />
 
-        {/* Heading */}
-        <FadeIn>
-        <div className="mx-auto max-w-3xl text-center">
+          <div>
+            <FadeIn>
+              <p className="text-xl leading-relaxed text-ink-2 lg:text-2xl lg:leading-relaxed">
+                I like the part of a project where scattered spreadsheets become one
+                reliable source, and that source becomes a dashboard or an app people
+                actually use. Most of my work sits between data analysis and software:
+                cleaning and modelling the data, then building the tool around it.
+              </p>
+            </FadeIn>
 
-          <p className="mb-4 text-sm uppercase tracking-[6px] text-violet-400">
-            About Me
-          </p>
-
-          <p className="mb-8 text-lg leading-10 text-zinc-400">
-            I'm an Information Systems student with a strong passion for Web Developer, Data Science, and technology-driven problem solving. I enjoy exploring how data and technology can be transformed into practical solutions that make everyday tasks more efficient and meaningful.
-          </p>
-          <p className="text-lg leading-10 text-zinc-400">
-            My experience includes developing dashboards, mobile applications, and AI-powered features through academic and personal projects. I believe every project is an opportunity to learn something new and improve both my technical and problem-solving skills. Currently, I'm focused on expanding my expertise in data analytics, machine learning, and artificial intelligence while seeking opportunities to create technology that delivers real impact.
-          </p>
+            <FadeIn delay={0.1}>
+              <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-8">
+                {facts.map((f) => (
+                  <div key={f.label}>
+                    <dt className="label text-muted">{f.label}</dt>
+                    <dd className="label mt-2 font-bold leading-relaxed text-ink">
+                      {f.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </FadeIn>
+          </div>
         </div>
-        </FadeIn>
-        {/* Tech Stack */}
-
-        <div className="mt-24">
-
-          <p className="mb-12 text-center text-sm uppercase tracking-[6px] text-violet-400">
-            Tech Stack
-          </p>
-
-          <FadeIn delay={0.2}>
-          <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-4">
-
-  {skills.map((skill) => (
-    <span
-      key={skill}
-      className="
-        rounded-full
-        border
-        border-white/10
-        bg-zinc-900/60
-        px-5
-        py-3
-        text-sm
-        font-medium
-        text-zinc-300
-        backdrop-blur-md
-        transition-all
-        duration-300
-        hover:-translate-y-2
-        hover:border-violet-500/40
-        hover:bg-violet-500/10
-        hover:text-white
-      "
-    >
-      {skill}
-    </span>
-  ))}
-
-</div>
-</FadeIn>
-        </div>
-        
-
       </Container>
     </section>
   );
