@@ -3,7 +3,7 @@ export const site = {
   role: "Data Analyst & Developer",
   email: "rasya.putra7291@gmail.com",
   resume: "/resume/CV-Muhammad-Rasya-Putra-Prakoso.pdf",
-  location: "West Java, Indonesia",
+  location: "Tangerang Selatan, Indonesia",
   focus: "Data & Software",
 };
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { navLinks, site } from "../../data/site";
 import Button from "../ui/Button";
+import ThemeToggle from "../ui/ThemeToggle";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -30,21 +31,25 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Button href="#contact" arrow className="!px-5 !py-3">
-            Let's talk
-          </Button>
-        </div>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="label rounded-full border border-line px-4 py-2.5 md:hidden"
-        >
-          {open ? "Close" : "Menu"}
-        </button>
+          <div className="hidden md:block">
+            <Button href="#contact" arrow className="!px-5 !py-3">
+              Let's talk
+            </Button>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="label rounded-full border border-line px-4 py-2.5 md:hidden"
+          >
+            {open ? "Close" : "Menu"}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

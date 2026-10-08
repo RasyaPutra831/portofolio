@@ -1,7 +1,7 @@
 const variants = {
   primary: "bg-ink text-paper hover:bg-ink-2",
   outline: "border border-line text-ink hover:border-ink",
-  lime: "bg-lime text-ink hover:brightness-95",
+  lime: "bg-lime text-[#111] hover:brightness-95",
 };
 
 export default function Button({

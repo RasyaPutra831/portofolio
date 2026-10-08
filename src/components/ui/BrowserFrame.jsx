@@ -3,7 +3,7 @@
 export default function BrowserFrame({ src, alt, fit = "cover", className = "" }) {
   return (
     <div
-      className={`overflow-hidden rounded-2xl border border-line bg-white shadow-[0_24px_60px_-30px_rgb(0_0_0/0.35)] ${className}`}
+      className={`overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_24px_60px_-30px_rgb(0_0_0/0.35)] ${className}`}
     >
       <div className="flex items-center gap-1.5 border-b border-line px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />

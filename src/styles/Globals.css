@@ -15,6 +15,7 @@
     --color-muted: #75756f;
     --color-line: rgb(17 17 17 / 0.12);
     --color-night: #0e0e0e;
+    --color-surface: #ffffff;
     --color-lime: #d4f53c;
 
     --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
@@ -23,6 +24,19 @@
 }
 
 @layer base {
+    /* Dark theme: only the tokens change, every component follows. */
+    :root[data-theme="dark"] {
+        color-scheme: dark;
+        --color-paper: #0d0d0c;
+        --color-paper-2: #1a1a18;
+        --color-ink: #f2f1ed;
+        --color-ink-2: #c9c8c2;
+        --color-muted: #8c8c85;
+        --color-line: rgb(242 241 237 / 0.14);
+        --color-night: #050505;
+        --color-surface: #171715;
+    }
+
     html {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -41,7 +55,7 @@
 
     ::selection {
         background: var(--color-lime);
-        color: var(--color-ink);
+        color: #111111;
     }
 }
 
@@ -70,6 +84,17 @@
         text-transform: uppercase;
         letter-spacing: 0.14em;
     }
+}
+
+/* Smooth colour change while toggling the theme (class is added briefly by useTheme) */
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+    transition:
+        background-color 0.45s ease,
+        color 0.45s ease,
+        border-color 0.45s ease,
+        fill 0.45s ease !important;
 }
 
 /* Lenis */
